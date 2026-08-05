@@ -18,46 +18,6 @@ import ScressTile from './ScressTile.vue'
       v-for="index in 64"
       :key="index"
     />
-
-    <!-- <ScressTile
-      class="tile"
-      :class="index % 2 ? 'dark' : 'bright'"
-      v-for="index in 8"
-      :key="index"
-    /> -->
-
-    <!-- 
-    <ScressTile
-      class="tile"
-      :class="index % 2 ? 'bright' : 'dark'"
-      v-for="index in 8"
-      :key="index"
-    /><ScressTile
-      class="tile"
-      :class="index % 2 ? 'dark' : 'bright'"
-      v-for="index in 8"
-      :key="index"
-    /><ScressTile
-      class="tile"
-      :class="index % 2 ? 'bright' : 'dark'"
-      v-for="index in 8"
-      :key="index"
-    /><ScressTile
-      class="tile"
-      :class="index % 2 ? 'dark' : 'bright'"
-      v-for="index in 8"
-      :key="index"
-    /><ScressTile
-      class="tile"
-      :class="index % 2 ? 'bright' : 'dark'"
-      v-for="index in 8"
-      :key="index"
-    /><ScressTile
-      class="tile"
-      :class="index % 2 ? 'dark' : 'bright'"
-      v-for="index in 8"
-      :key="index"
-    /> -->
   </div>
 </template>
 
