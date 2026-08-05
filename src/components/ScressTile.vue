@@ -5,6 +5,7 @@ const props = defineProps({
     default: 'var(--dark-tile)',
   },
 })
+const tileSize = import.meta.env.VITE_TILE_SIZE + 'px'
 </script>
 
 <template>
@@ -13,7 +14,7 @@ const props = defineProps({
 
 <style scoped>
 .tile {
-  width: 75px;
-  height: 75px;
+  width: v-bind(tileSize);
+  height: v-bind(tileSize);
 }
 </style>
