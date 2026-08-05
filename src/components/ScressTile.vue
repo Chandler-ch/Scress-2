@@ -2,7 +2,7 @@
 const props = defineProps({
   color: {
     type: String,
-    default: 'var(--dark-tile)',
+    default: 'white',
   },
 })
 const tileSize = import.meta.env.VITE_TILE_SIZE + 'px'
