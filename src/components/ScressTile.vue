@@ -1,5 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>Hello</div>
+  <div class="tile"></div>
 </template>
+
+<style scoped>
+.tile {
+  background-color: var(--bright-tile);
+  width: 75px;
+  height: 75px;
+}
+</style>
