@@ -1,7 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  color: {
+    type: String,
+    default: 'var(--dark-tile)',
+  },
+})
+</script>
 
 <template>
-  <div class="tile"></div>
+  <div :style="{ backgroundColor: props.color }" class="tile"></div>
 </template>
 
 <style scoped>
