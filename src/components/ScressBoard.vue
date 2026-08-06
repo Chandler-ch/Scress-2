@@ -1,5 +1,75 @@
 <script setup lang="ts">
 import ScressTile from './ScressTile.vue'
+
+const figureArray = [
+  'Turm',
+  'Pferd',
+  'Läufer',
+  'Königin',
+  'König',
+  'Läufer',
+  'Pferd',
+  'Turm',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Turm-W',
+  'Pferd-W',
+  'Läufer-W',
+  'Königin-W',
+  'König-W',
+  'Läufer-W',
+  'Pferd-W',
+  'Turm-W',
+]
+
+const blackArray = ['Turm', 'Pferd', 'Läufer', 'Königin', 'König', 'Bauer']
+const whiteArray = ['Turm-W', 'Pferd-W', 'Läufer-W', 'Königin-W', 'König-W', 'Bauer-W']
 </script>
 
 <template>
@@ -15,6 +85,7 @@ import ScressTile from './ScressTile.vue'
             ? 'dark'
             : 'bright'
       "
+      :figureName="figureArray[index - 1]"
       v-for="index in 64"
       :key="index"
     />
