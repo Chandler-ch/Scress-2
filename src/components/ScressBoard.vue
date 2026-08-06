@@ -1,5 +1,73 @@
 <script setup lang="ts">
+import ScressFigure from './ScressFigure.vue'
 import ScressTile from './ScressTile.vue'
+
+const startFigures = [
+  'Turm',
+  'Pferd',
+  'Läufer',
+  'Königin',
+  'König',
+  'Läufer',
+  'Pferd',
+  'Turm',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  'Bauer',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Bauer-W',
+  'Turm-W',
+  'Pferd-W',
+  'Läufer-W',
+  'Königin-W',
+  'König-W',
+  'Läufer-W',
+  'Pferd-W',
+  'Turm-W',
+]
 </script>
 
 <template>
@@ -17,7 +85,9 @@ import ScressTile from './ScressTile.vue'
       "
       v-for="index in 64"
       :key="index"
-    />
+    >
+      <ScressFigure v-if="startFigures[index - 1] !== ''" :figureName="startFigures[index - 1]"
+    /></ScressTile>
   </div>
 </template>
 
