@@ -4,10 +4,9 @@ const props = defineProps({
     type: String,
   },
 })
-console.log(`../assets/${props.figureName}.png`)
 </script>
 <template>
-  <img class="figure" src="../assets/König.png" />
+  <img class="figure" :src="`/images/${props.figureName}.png`" />
 </template>
 <style scoped>
 .figure {
