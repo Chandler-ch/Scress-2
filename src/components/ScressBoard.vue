@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ScressFigure from './ScressFigure.vue'
 import ScressTile from './ScressTile.vue'
 
 const figureArray = [
@@ -68,8 +69,8 @@ const figureArray = [
   'Turm-W',
 ]
 
-const blackArray = ['Turm', 'Pferd', 'Läufer', 'Königin', 'König', 'Bauer']
-const whiteArray = ['Turm-W', 'Pferd-W', 'Läufer-W', 'Königin-W', 'König-W', 'Bauer-W']
+const darkArray = ['Turm', 'Pferd', 'Läufer', 'Königin', 'König', 'Bauer']
+const brightArray = ['Turm-W', 'Pferd-W', 'Läufer-W', 'Königin-W', 'König-W', 'Bauer-W']
 </script>
 
 <template>
@@ -85,10 +86,11 @@ const whiteArray = ['Turm-W', 'Pferd-W', 'Läufer-W', 'Königin-W', 'König-W', 
             ? 'dark'
             : 'bright'
       "
-      :figureName="figureArray[index - 1]"
       v-for="index in 64"
       :key="index"
-    />
+    >
+      <ScressFigure v-if="figureArray[index - 1] !== ''" :figureName="figureArray[index - 1]"
+    /></ScressTile>
   </div>
 </template>
 
