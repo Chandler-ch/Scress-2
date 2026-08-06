@@ -1,12 +1,17 @@
 <script setup lang="ts">
+import { onSelectedFigure } from '@/utils/selectHandling'
+
 const props = defineProps({
   figureName: {
     type: String,
   },
+  position: {
+    type: Number,
+  },
 })
 </script>
 <template>
-  <img class="figure" :src="`/images/${props.figureName}.png`" />
+  <img v-on:click="onSelectedFigure" class="figure" :src="`/images/${props.figureName}.png`" />
 </template>
 <style scoped>
 .figure {
