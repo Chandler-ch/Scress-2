@@ -3,7 +3,7 @@ const tileSize = import.meta.env.VITE_TILE_SIZE + 'px'
 </script>
 
 <template>
-  <div class="tile">
+  <div v-on:click="console.log('Tomate!')" class="tile">
     <slot />
   </div>
 </template>
