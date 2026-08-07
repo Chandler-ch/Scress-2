@@ -1,10 +1,10 @@
 import { selectWPawnPath } from '@/composables/pawnPath'
 
-export function onSelectedFigure(figure: String, currentPosition: Number) {
+export function onSelectedFigure(figure: String, currentPosition: number) {
   showMovement(figure, currentPosition)
 }
 
-function showMovement(figure: String, currentPosition: Number) {
+function showMovement(figure: String, currentPosition: number) {
   // figure = "Bauer-W"
   // currentPosition = 50
   switch (figure) {
