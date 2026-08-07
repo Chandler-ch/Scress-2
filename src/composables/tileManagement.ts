@@ -1,8 +1,10 @@
+import type { ScressFigures } from '@/enums/scressFigures'
+
 export function getTileFigure(position: number) {
   return startFigures[position - 1]
 }
 
-export const startFigures = [
+export const startFigures: ScressFigures[] = [
   'Turm',
   'Pferd',
   'Läufer',
