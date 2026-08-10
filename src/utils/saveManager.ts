@@ -14,6 +14,8 @@ export function loadGame() {
   // Logik einsetzen, dass das game geladen wird
 }
 
+// Variable die den aktuellen Zug sagt = isWhiteTurn = true/false
+
 export const gameState: ScressFigures[] = [
   'Turm',
   'Pferd',
