@@ -1,7 +1,7 @@
 import { gameState } from '@/utils/saveManager'
 
-export function calculateNorthMoves(pos: number, limited: number) {
+export function calculateMoves(pos: number, multiplier: number, limited: number) {
   for (let i = 1; i <= limited; i++) {
-    console.log(gameState[pos + 8 * i])
+    console.log(gameState[pos + multiplier * i])
   }
 }
