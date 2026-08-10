@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import ScressFigure from '@/components/ScressFigure.vue'
+import ScressTile from '@/components/ScressTile.vue'
 import { gameState } from '@/utils/saveManager.ts'
-import ScressFigure from './ScressFigure.vue'
-import ScressTile from './ScressTile.vue'
 </script>
 
 <template>
