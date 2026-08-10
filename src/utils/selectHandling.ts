@@ -1,3 +1,4 @@
+import { selectPawnPath, selectWPawnPath } from '@/composables/tileSelections/pawnPath'
 import type { ScressFigures } from '@/enums/scressFigures'
 
 export function onSelectedFigure(figure: ScressFigures, pos: number) {
@@ -7,10 +8,10 @@ export function onSelectedFigure(figure: ScressFigures, pos: number) {
 function showMovement(figure: ScressFigures, pos: number) {
   switch (figure) {
     case 'Bauer':
-      console.log('not implemented yet')
+      selectPawnPath(pos)
       break
     case 'Bauer-W':
-      console.log('not implemented yet')
+      selectWPawnPath(pos)
       break
     case 'König':
     case 'König-W':
