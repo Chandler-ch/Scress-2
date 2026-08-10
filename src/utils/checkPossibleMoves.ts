@@ -1,4 +1,4 @@
-import { calculateMoves } from '@/composables/moveCalculation/calculatePossibleMoves'
+import { checkPossibleMoves as checkPossibleMoves } from '@/composables/moveCalculation/checkPossibleMoves'
 import {
   eastEdge,
   northEdge,
@@ -10,23 +10,14 @@ import {
 
 export const possibleMoves: number[] = []
 
-export function checkPossibleMoves(
-  pos: number,
-  direction: directions,
-  isWhite: boolean,
-  limited: number = 8,
-) {
-  calculatePossibleMoves(pos, direction, isWhite, limited)
-}
-
-function calculatePossibleMoves(
+export function calculatePossibleMoves(
   pos: number,
   direction: directions,
   isWhite: boolean,
   limited: number = 8,
 ) {
   const multiplier: DirectionMultiplier = resolveDirection(direction)
-  calculateMoves(pos, multiplier, isWhite, limited)
+  checkPossibleMoves(pos, multiplier, isWhite, limited)
 }
 
 function resolveDirection(direction: directions) {
