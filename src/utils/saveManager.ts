@@ -6,7 +6,7 @@ export function saveStorage() {
 }
 
 export function loadGame() {
-  // aus dem local storage laden & aktuellen Spielstand überschreiben
+  // aus dem local storage laden & aktuellen Spielstand überschreiben -> was wenn aber von vorherigem Spiel oder so? --> LocalStorage-Lösch-Funktion bei Spielende / Abbruch
   // wenn kein Gamestate vorhanden ist, dann den aktuellen state (start-game-state) nehmen und reinladen. Am Besten diese Funktion immer am Anfang aufrufen.
   console.log('loaded')
   const newState = gameState
