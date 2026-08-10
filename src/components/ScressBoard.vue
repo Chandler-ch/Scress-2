@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { startFigures } from '@/composables/tileManagement.ts'
+import { gameState } from '@/utils/saveManager.ts'
 import ScressFigure from './ScressFigure.vue'
 import ScressTile from './ScressTile.vue'
 </script>
@@ -21,8 +21,8 @@ import ScressTile from './ScressTile.vue'
       :key="index"
     >
       <ScressFigure
-        v-if="startFigures[index - 1] !== ''"
-        :figureName="startFigures[index - 1]"
+        v-if="gameState[index - 1] !== ''"
+        :figureName="gameState[index - 1]"
         :position="index"
     /></ScressTile>
   </div>
