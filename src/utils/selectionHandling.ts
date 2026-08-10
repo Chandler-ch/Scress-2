@@ -1,5 +1,5 @@
-import { selectPawnPath, selectWPawnPath } from '@/composables/tileSelections/pawnPath'
-import type { ScressFigures } from '@/typings/scressFigures'
+import { selectPawnPath, selectWPawnPath } from '@/utils/tileSelections/pawnPath'
+import type { ScressFigures } from '@/types/scressFigures'
 
 export function onSelectedFigure(figure: ScressFigures, pos: number) {
   showMovement(figure, pos)

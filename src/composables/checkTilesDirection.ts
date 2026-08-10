@@ -1,8 +1,8 @@
-import type { DirectionMultiplier } from '@/typings/directions'
-import { possibleMoves } from '@/utils/checkPossibleMoves'
+import type { DirectionMultiplier } from '@/types/directions'
+import { possibleMoves } from '@/utils/DirectionHandling'
 import { gameState } from '@/utils/saveManager'
 
-export function checkPossibleMoves(
+export function checkDirectionTiles(
   pos: number,
   direction: DirectionMultiplier,
   isWhite: boolean,
