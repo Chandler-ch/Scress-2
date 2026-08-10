@@ -5,7 +5,7 @@ export function selectPawnPath(pos: number) {
   if (pos > 8 && pos <= 16) {
     limited = 2
   }
-  checkPossibleMoves(pos, 'south', limited)
+  checkPossibleMoves(pos, 'south', false, limited)
 }
 
 export function selectWPawnPath(pos: number) {
@@ -13,5 +13,5 @@ export function selectWPawnPath(pos: number) {
   if (pos > 48 && pos <= 56) {
     limited = 2
   }
-  checkPossibleMoves(pos, 'north', limited)
+  checkPossibleMoves(pos, 'north', true, limited)
 }

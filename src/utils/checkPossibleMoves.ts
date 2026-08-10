@@ -1,35 +1,51 @@
 import { calculateMoves } from '@/composables/moveCalculation/calculatePossibleMoves'
+import {
+  eastEdge,
+  northEdge,
+  southEdge,
+  westEdge,
+  type DirectionMultiplier,
+  type directions,
+} from '@/types/directions'
 
-type directions =
-  'north' | 'west' | 'south' | 'east' | 'northwest' | 'southwest' | 'northeast' | 'southeast'
-const possibleMoves = []
+export const possibleMoves: number[] = []
 
-export function checkPossibleMoves(pos: number, direction: directions, limited: number = 8) {
-  calculatePossibleMoves(pos, direction, limited)
+export function checkPossibleMoves(
+  pos: number,
+  direction: directions,
+  isWhite: boolean,
+  limited: number = 8,
+) {
+  calculatePossibleMoves(pos, direction, isWhite, limited)
 }
 
-function calculatePossibleMoves(pos: number, direction: directions, limited: number = 8) {
-  const multiplier: number = resolveDirection(direction)
-  calculateMoves(pos, multiplier, limited)
+function calculatePossibleMoves(
+  pos: number,
+  direction: directions,
+  isWhite: boolean,
+  limited: number = 8,
+) {
+  const multiplier: DirectionMultiplier = resolveDirection(direction)
+  calculateMoves(pos, multiplier, isWhite, limited)
 }
 
 function resolveDirection(direction: directions) {
   switch (direction) {
     case 'north':
-      return -8
+      return { multiplier: -8, edge: northEdge }
     case 'east':
-      return -1
+      return { multiplier: -1, edge: eastEdge }
     case 'south':
-      return 8
+      return { multiplier: 8, edge: southEdge }
     case 'west':
-      return 1
+      return { multiplier: 1, edge: westEdge }
     case 'northeast':
-      return -7
+      return { multiplier: -7, edge: northEdge.concat(eastEdge) }
     case 'northwest':
-      return -9
+      return { multiplier: -9, edge: northEdge.concat(westEdge) }
     case 'southeast':
-      return 9
+      return { multiplier: 9, edge: southEdge.concat(eastEdge) }
     case 'southwest':
-      return 7
+      return { multiplier: 7, edge: southEdge.concat(westEdge) }
   }
 }
