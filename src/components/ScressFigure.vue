@@ -1,17 +1,25 @@
 <script setup lang="ts">
+import type { ScressFigures } from '@/enums/scressFigures'
 import { onSelectedFigure } from '@/utils/selectHandling'
+import type { PropType } from 'vue'
 
 const props = defineProps({
   figureName: {
-    type: String,
+    type: String as PropType<ScressFigures>,
+    required: true,
   },
   position: {
     type: Number,
+    required: true,
   },
 })
 </script>
 <template>
-  <img v-on:click="onSelectedFigure" class="figure" :src="`/images/${props.figureName}.png`" />
+  <img
+    v-on:click="onSelectedFigure(figureName, position)"
+    class="figure"
+    :src="`/images/${props.figureName}.png`"
+  />
 </template>
 <style scoped>
 .figure {

@@ -21,7 +21,7 @@ import ScressTile from './ScressTile.vue'
       :key="index"
     >
       <ScressFigure
-        v-if="gameState[index - 1] !== ''"
+        v-if="gameState[index - 1]"
         :figureName="gameState[index - 1]"
         :position="index"
     /></ScressTile>

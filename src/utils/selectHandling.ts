@@ -1,28 +1,36 @@
-import { selectWPawnPath } from '@/composables/pawnPath'
+import type { ScressFigures } from '@/enums/scressFigures'
 
-export function onSelectedFigure(figure: String, currentPosition: number) {
-  showMovement(figure, currentPosition)
+export function onSelectedFigure(figure: ScressFigures, pos: number) {
+  showMovement(figure, pos)
 }
 
-function showMovement(figure: String, currentPosition: number) {
-  // figure = "Bauer-W"
-  // currentPosition = 50
+function showMovement(figure: ScressFigures, pos: number) {
   switch (figure) {
     case 'Bauer':
-    // 2 nach unten
+      console.log('not implemented yet')
+      break
     case 'Bauer-W':
-      // 2 nach oben
-      selectWPawnPath(currentPosition)
-    case 'Turm':
-    // passt auch für Turm-W
-    // gerade nach in alle 4 Himmelsrichtungen
-    case 'Pferd':
-    //kompliziert
-    case 'Königin':
-    // basically alles ausser Pferd
-    case 'Läufer':
-    // Diagonal überallhin
+      console.log('not implemented yet')
+      break
     case 'König':
-    // überall 1
+    case 'König-W':
+      console.log('not implemented yet')
+      break
+    case 'Königin':
+    case 'Königin-W':
+      console.log('not implemented yet')
+      break
+    case 'Läufer':
+    case 'Läufer-W':
+      console.log('not implemented yet')
+      break
+    case 'Pferd':
+    case 'Pferd-W':
+      console.log('not implemented yet')
+      break
+    case 'Turm':
+    case 'Turm-W':
+      console.log('not implemented yet')
+      break
   }
 }
