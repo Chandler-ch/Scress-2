@@ -1,4 +1,4 @@
-import type { DirectionMultiplier } from '@/types/directions'
+import type { DirectionMultiplier } from '@/typings/directions'
 import { possibleMoves } from '@/utils/checkPossibleMoves'
 import { gameState } from '@/utils/saveManager'
 

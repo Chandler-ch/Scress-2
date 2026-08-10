@@ -6,7 +6,7 @@ import {
   westEdge,
   type DirectionMultiplier,
   type directions,
-} from '@/types/directions'
+} from '@/typings/directions'
 
 export const possibleMoves: number[] = []
 

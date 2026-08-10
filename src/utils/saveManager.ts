@@ -1,4 +1,4 @@
-import type { ScressFigures } from '@/types/scressFigures'
+import type { ScressFigures } from '@/typings/scressFigures'
 
 export function saveStorage() {
   // save scressFigures String into local storage on web browser

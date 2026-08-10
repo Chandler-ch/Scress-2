@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ScressFigures } from '@/types/scressFigures'
+import type { ScressFigures } from '@/typings/scressFigures'
 import { onSelectedFigure } from '@/utils/selectHandling'
 import type { PropType } from 'vue'
 
