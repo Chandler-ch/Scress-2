@@ -1,10 +1,11 @@
 import { checkDirectionTiles as checkDirectionTiles } from '@/composables/checkTilesDirection'
 import { resolveDirection } from '@/composables/directionMultiplier'
 import { type DirectionMultiplier, type directions } from '@/types/directions'
+import { ref, type Ref } from 'vue'
 
-export const possibleMoves: number[] = []
+export const possibleMoves: Ref<number[]> = ref([])
 
-export function getPossibleMoves(
+export function getpossibleMoves(
   pos: number,
   direction: directions,
   isWhite: boolean,

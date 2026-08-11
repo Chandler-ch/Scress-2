@@ -10,11 +10,11 @@ export function checkDirectionTiles(
 ) {
   for (let i = 1; i <= limited; i++) {
     if (isFree(pos + direction.multiplier * i)) {
-      possibleMoves.push(pos + direction.multiplier * i)
+      possibleMoves.value.push(pos + direction.multiplier * i)
       if (isOnEdge(pos, direction.edge)) break
       continue
     } else if (isEatable(pos, isWhite)) {
-      possibleMoves.push(pos + direction.multiplier * i)
+      possibleMoves.value.push(pos + direction.multiplier * i)
       break
     } else if (isFriendly(pos, isWhite)) {
       break

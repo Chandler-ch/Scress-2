@@ -6,21 +6,7 @@ import { gameState } from '@/utils/saveManager.ts'
 
 <template>
   <div class="container">
-    <ScressTile
-      class="tile"
-      :class="
-        Math.floor((index - 1) / 8) % 2
-          ? index % 2
-            ? 'bright'
-            : 'dark'
-          : index % 2
-            ? 'dark'
-            : 'bright'
-      "
-      :position="index"
-      v-for="index in 64"
-      :key="index"
-    >
+    <ScressTile :position="index" v-for="index in 64" :key="index">
       <ScressFigure
         v-if="gameState[index - 1]"
         :figureName="gameState[index - 1]"
@@ -37,12 +23,5 @@ import { gameState } from '@/utils/saveManager.ts'
   border-color: pink;
   border-width: 5px;
   border-style: solid;
-}
-
-.bright {
-  background-color: var(--bright-tile);
-}
-.dark {
-  background-color: var(--dark-tile);
 }
 </style>

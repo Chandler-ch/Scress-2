@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { emitter } from '@/utils/eventBus'
-import { onMounted, ref } from 'vue'
+import { possibleMoves } from '@/utils/possibleMovesHandler'
+import { ref, watch } from 'vue'
 
 const tileSize = import.meta.env.VITE_TILE_SIZE + 'px'
 
@@ -10,9 +10,11 @@ const props = defineProps({
     required: true,
   },
 })
-
 const marked = ref(false)
-onMounted(() => emitter.on(props.position.toString(), getMarked))
+
+watch(possibleMoves.value, () => {
+  possibleMoves.value.includes(props.position) ? getMarked() : (marked.value = false)
+})
 
 function getMarked() {
   console.log('hey I got marked! ' + props.position)
@@ -21,7 +23,21 @@ function getMarked() {
 </script>
 
 <template>
-  <div class="tile" :class="marked ? 'marked' : ''">
+  <div
+    class="tile"
+    :class="
+      marked
+        ? 'marked'
+        : Math.floor((position - 1) / 8) % 2
+          ? position % 2
+            ? 'bright'
+            : 'dark'
+          : position % 2
+            ? 'dark'
+            : 'bright'
+    "
+  >
+    {{ marked }}
     <slot />
   </div>
 </template>
@@ -30,6 +46,13 @@ function getMarked() {
 .tile {
   width: v-bind(tileSize);
   height: v-bind(tileSize);
+}
+
+.bright {
+  background-color: var(--bright-tile);
+}
+.dark {
+  background-color: var(--dark-tile);
 }
 
 .marked {

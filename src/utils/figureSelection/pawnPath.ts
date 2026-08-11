@@ -1,16 +1,11 @@
-import { getPossibleMoves, possibleMoves } from '../possibleMovesHandler'
-import { markTileSignal } from '../eventBus'
+import { getpossibleMoves, possibleMoves } from '../possibleMovesHandler'
 
 export function selectPawnPath(pos: number) {
   let limited = 1
   if (pos > 8 && pos <= 16) {
     limited = 2
   }
-  getPossibleMoves(pos, 'south', false, limited)
-  possibleMoves.forEach((possibleMove) => {
-    console.log('sent! ' + possibleMove)
-    markTileSignal(possibleMove)
-  })
+  getpossibleMoves(pos, 'south', false, limited)
 }
 
 export function selectWPawnPath(pos: number) {
@@ -18,5 +13,5 @@ export function selectWPawnPath(pos: number) {
   if (pos > 48 && pos <= 56) {
     limited = 2
   }
-  getPossibleMoves(pos, 'north', true, limited)
+  getpossibleMoves(pos, 'north', true, limited)
 }
