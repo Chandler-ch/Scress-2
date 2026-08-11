@@ -16,7 +16,6 @@ const props = defineProps({
 })
 const isMyTurn = computed(() => {
   const figureIsWhite = props.figureName.includes('-W')
-  console.log(isWhiteTurn.value, figureIsWhite)
   return isWhiteTurn.value === figureIsWhite
 })
 </script>
