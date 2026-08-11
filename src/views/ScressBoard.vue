@@ -17,6 +17,7 @@ import { gameState } from '@/utils/saveManager.ts'
             ? 'dark'
             : 'bright'
       "
+      :position="index"
       v-for="index in 64"
       :key="index"
     >

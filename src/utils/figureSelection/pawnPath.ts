@@ -1,4 +1,5 @@
-import { getPossibleMoves } from '../directionHandling'
+import { getPossibleMoves, possibleMoves } from '../directionHandling'
+import { markTileSignal } from '../eventBus'
 
 export function selectPawnPath(pos: number) {
   let limited = 1
@@ -6,6 +7,10 @@ export function selectPawnPath(pos: number) {
     limited = 2
   }
   getPossibleMoves(pos, 'south', false, limited)
+  possibleMoves.forEach((possibleMove) => {
+    console.log('sent! ' + possibleMove)
+    markTileSignal(possibleMove)
+  })
 }
 
 export function selectWPawnPath(pos: number) {
