@@ -13,13 +13,8 @@ const props = defineProps({
 const marked = ref(false)
 
 watch(possibleMoves.value, () => {
-  possibleMoves.value.includes(props.position) ? getMarked() : (marked.value = false)
+  marked.value = possibleMoves.value.includes(props.position)
 })
-
-function getMarked() {
-  console.log('hey I got marked! ' + props.position)
-  marked.value = true
-}
 </script>
 
 <template>
@@ -37,7 +32,6 @@ function getMarked() {
             : 'bright'
     "
   >
-    {{ marked }}
     <slot />
   </div>
 </template>
