@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import ScressBoard from './components/ScressBoard.vue'
+import { onMounted } from 'vue'
+import { loadGame } from './utils/saveManager.ts'
+import ScressBoard from './views/ScressBoard.vue'
+
+onMounted(() => loadGame())
 </script>
 
 <template>

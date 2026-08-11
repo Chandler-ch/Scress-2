@@ -2,6 +2,8 @@
 :root {
   --bright-tile: rgba(186, 202, 68);
   --dark-tile: rgba(118, 150, 86);
+  --marked-bright: rgba(255, 127, 80);
+  --marked-dark: rgba(252, 111, 60);
 }
 
 /* semantic color variables for this project */
