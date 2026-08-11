@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { possibleMoves } from '@/utils/possibleMovesHandler'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 const tileSize = import.meta.env.VITE_TILE_SIZE + 'px'
 
@@ -12,27 +12,26 @@ const props = defineProps({
 })
 const marked = ref(false)
 
+const tileBrightness =
+  Math.floor(props.position / 8) % 2
+    ? props.position % 2
+      ? 'dark'
+      : 'bright'
+    : props.position % 2
+      ? 'bright'
+      : 'dark'
+
+const tileColor = computed(() => {
+  return marked.value ? 'marked-' + tileBrightness : tileBrightness
+})
+
 watch(possibleMoves.value, () => {
   marked.value = possibleMoves.value.includes(props.position)
 })
 </script>
 
 <template>
-  <div
-    class="tile"
-    :class="
-      marked
-        ? 'marked'
-        : Math.floor(position / 8) % 2
-          ? position % 2
-            ? 'dark'
-            : 'bright'
-          : position % 2
-            ? 'bright'
-            : 'dark'
-    "
-    v-on:click="marked ? console.log('moving') : ''"
-  >
+  <div class="tile" :class="tileColor" v-on:click="marked ? console.log('moving') : ''">
     <slot />
   </div>
 </template>
@@ -50,7 +49,10 @@ watch(possibleMoves.value, () => {
   background-color: var(--dark-tile);
 }
 
-.marked {
-  background-color: coral;
+.marked-bright {
+  background-color: var(--marked-bright);
+}
+.marked-dark {
+  background-color: var(--marked-dark);
 }
 </style>
