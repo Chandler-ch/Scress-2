@@ -6,11 +6,11 @@ import { gameState } from '@/utils/saveManager.ts'
 
 <template>
   <div class="container">
-    <ScressTile :position="index" v-for="index in 64" :key="index">
+    <ScressTile :position="index - 1" v-for="index in 64" :key="index">
       <ScressFigure
         v-if="gameState[index - 1]"
         :figureName="gameState[index - 1]"
-        :position="index"
+        :position="index - 1"
     /></ScressTile>
   </div>
 </template>

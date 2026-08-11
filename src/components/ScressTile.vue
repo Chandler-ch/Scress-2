@@ -23,13 +23,13 @@ watch(possibleMoves.value, () => {
     :class="
       marked
         ? 'marked'
-        : Math.floor((position - 1) / 8) % 2
+        : Math.floor(position / 8) % 2
           ? position % 2
-            ? 'bright'
-            : 'dark'
-          : position % 2
             ? 'dark'
             : 'bright'
+          : position % 2
+            ? 'bright'
+            : 'dark'
     "
   >
     <slot />

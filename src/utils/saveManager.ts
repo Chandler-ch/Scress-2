@@ -36,7 +36,7 @@ export const gameState: ScressFigures[] = [
   '',
   '',
   '',
-  '',
+  'Bauer',
   '',
   '',
   '',
