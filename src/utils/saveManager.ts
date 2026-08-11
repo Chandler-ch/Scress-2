@@ -1,4 +1,5 @@
 import type { ScressFigures } from '@/types/scressFigures'
+import { ref, type Ref } from 'vue'
 
 export function saveStorage() {
   // save scressFigures String into local storage on web browser
@@ -8,15 +9,15 @@ export function saveStorage() {
 export function loadGame() {
   // aus dem local storage laden & aktuellen Spielstand überschreiben -> was wenn aber von vorherigem Spiel oder so? --> LocalStorage-Lösch-Funktion bei Spielende / Abbruch
   // wenn kein Gamestate vorhanden ist, dann den aktuellen state (start-game-state) nehmen und reinladen. Am Besten diese Funktion immer am Anfang aufrufen.
-  console.log('loaded')
-  const newState = gameState
+  // console.log('loaded')
+  const newState = gameState.value
 
   // Logik einsetzen, dass das game geladen wird
 }
 
 // Variable die den aktuellen Zug sagt = isWhiteTurn = true/false
 
-export const gameState: ScressFigures[] = [
+export const gameState: Ref<ScressFigures[]> = ref([
   'Turm',
   'Pferd',
   'Läufer',
@@ -81,4 +82,4 @@ export const gameState: ScressFigures[] = [
   'Läufer-W',
   'Pferd-W',
   'Turm-W',
-]
+])

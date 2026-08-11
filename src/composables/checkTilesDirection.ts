@@ -28,16 +28,16 @@ export function checkDirectionTiles(
 }
 
 function isFree(pos: number) {
-  return gameState[pos] === ''
+  return gameState.value[pos] === ''
 }
 
 function isEatable(pos: number, currentIsWhite: boolean) {
-  const figureIsWhite = gameState[pos]?.includes('-W')
+  const figureIsWhite = gameState.value[pos]?.includes('-W')
   return figureIsWhite !== currentIsWhite
 }
 
 function isFriendly(pos: number, currentIsWhite: boolean) {
-  const figureIsWhite = gameState[pos]?.includes('-W')
+  const figureIsWhite = gameState.value[pos]?.includes('-W')
   return figureIsWhite === currentIsWhite
 }
 
