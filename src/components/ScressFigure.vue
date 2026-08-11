@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { ScressFigures } from '@/types/scressFigures'
+import { isWhiteTurn } from '@/utils/saveManager'
 import { onSelectedFigure } from '@/utils/selectionHandling'
-import type { PropType } from 'vue'
+import { computed, type PropType } from 'vue'
 
 const props = defineProps({
   figureName: {
@@ -13,10 +14,15 @@ const props = defineProps({
     required: true,
   },
 })
+const isMyTurn = computed(() => {
+  const figureIsWhite = props.figureName.includes('-W')
+  console.log(isWhiteTurn.value, figureIsWhite)
+  return isWhiteTurn.value === figureIsWhite
+})
 </script>
 <template>
   <img
-    v-on:click="onSelectedFigure(figureName, position)"
+    v-on:click="isMyTurn ? onSelectedFigure(figureName, position) : ''"
     class="figure"
     :src="`/images/${props.figureName}.png`"
   />

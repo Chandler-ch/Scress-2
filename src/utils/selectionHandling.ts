@@ -2,7 +2,7 @@ import { selectPawnPath, selectWPawnPath } from '@/utils/figureSelection/pawnPat
 import type { ScressFigures } from '@/types/scressFigures'
 import { possibleMoves } from './possibleMovesHandler'
 import { ref, type Ref } from 'vue'
-import { gameState } from './saveManager'
+import { gameState, isWhiteTurn } from './saveManager'
 
 const currentFigure: Ref<ScressFigures> = ref('')
 const startPos: Ref<number> = ref(-1)
@@ -18,6 +18,7 @@ export function onMovement(pos: number) {
   gameState.value[pos] = currentFigure.value
   gameState.value[startPos.value] = ''
   reset()
+  isWhiteTurn.value = !isWhiteTurn.value
 }
 
 function showMovement(pos: number) {

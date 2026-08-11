@@ -15,7 +15,7 @@ export function loadGame() {
   // Logik einsetzen, dass das game geladen wird
 }
 
-// Variable die den aktuellen Zug sagt = isWhiteTurn = true/false
+export const isWhiteTurn: Ref<boolean> = ref(true)
 
 export const gameState: Ref<ScressFigures[]> = ref([
   'Turm',
