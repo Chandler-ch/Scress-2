@@ -1,5 +1,5 @@
 import type { DirectionMultiplier } from '@/types/directions'
-import { possibleMoves } from '@/utils/directionHandling'
+import { possibleMoves } from '@/utils/possibleMovesHandler'
 import { gameState } from '@/utils/saveManager'
 
 export function checkDirectionTiles(

@@ -1,4 +1,4 @@
-import { getPossibleMoves, possibleMoves } from '../directionHandling'
+import { getPossibleMoves, possibleMoves } from '../possibleMovesHandler'
 import { markTileSignal } from '../eventBus'
 
 export function selectPawnPath(pos: number) {

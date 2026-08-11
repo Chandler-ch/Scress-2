@@ -1,7 +1,9 @@
 import { selectPawnPath, selectWPawnPath } from '@/utils/figureSelection/pawnPath'
 import type { ScressFigures } from '@/types/scressFigures'
+import { possibleMoves } from './possibleMovesHandler'
 
 export function onSelectedFigure(figure: ScressFigures, pos: number) {
+  possibleMoves.length = 0
   showMovement(figure, pos)
 }
 
