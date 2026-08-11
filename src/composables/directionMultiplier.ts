@@ -1,6 +1,6 @@
-import { eastEdge, northEdge, southEdge, westEdge, type Directions } from '@/types/directions'
+import { eastEdge, northEdge, southEdge, westEdge, type Direction } from '@/types/directions'
 
-export function resolveDirection(direction: Directions) {
+export function resolveDirection(direction: Direction) {
   switch (direction) {
     case 'north':
       return { multiplier: -8, edge: northEdge }
