@@ -31,6 +31,7 @@ watch(possibleMoves.value, () => {
             ? 'bright'
             : 'dark'
     "
+    v-on:click="marked ? console.log('moving') : ''"
   >
     <slot />
   </div>

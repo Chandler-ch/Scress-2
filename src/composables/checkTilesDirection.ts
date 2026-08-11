@@ -9,14 +9,16 @@ export function checkDirectionTiles(
   limited: number,
 ) {
   for (let i = 1; i <= limited; i++) {
-    if (isFree(pos + direction.multiplier * i)) {
-      possibleMoves.value.push(pos + direction.multiplier * i)
-      if (isOnEdge(pos, direction.edge)) break
+    const calcPos = pos + direction.multiplier * i
+
+    if (isFree(calcPos)) {
+      possibleMoves.value.push(calcPos)
+      if (isOnEdge(calcPos, direction.edge)) break
       continue
-    } else if (isEatable(pos, isWhite)) {
-      possibleMoves.value.push(pos + direction.multiplier * i)
+    } else if (isEatable(calcPos, isWhite)) {
+      possibleMoves.value.push(calcPos)
       break
-    } else if (isFriendly(pos, isWhite)) {
+    } else if (isFriendly(calcPos, isWhite)) {
       break
     } else {
       console.log('Something went wrong. Please check the security cameras. Operation will stop.')
@@ -29,14 +31,14 @@ function isFree(pos: number) {
   return gameState[pos] === ''
 }
 
-function isEatable(pos: number, isWhite: boolean) {
+function isEatable(pos: number, currentIsWhite: boolean) {
   const figureIsWhite = gameState[pos]?.includes('-W')
-  return figureIsWhite !== isWhite
+  return figureIsWhite !== currentIsWhite
 }
 
-function isFriendly(pos: number, isWhite: boolean) {
+function isFriendly(pos: number, currentIsWhite: boolean) {
   const figureIsWhite = gameState[pos]?.includes('-W')
-  return figureIsWhite === isWhite
+  return figureIsWhite === currentIsWhite
 }
 
 function isOnEdge(pos: number, edge: number[]) {
