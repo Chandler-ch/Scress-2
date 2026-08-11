@@ -1,5 +1,5 @@
 import type { DirectionMultiplier } from '@/types/directions'
-import { possibleMoves } from '@/utils/DirectionHandling'
+import { possibleMoves } from '@/utils/directionHandling'
 import { gameState } from '@/utils/saveManager'
 
 export function checkDirectionTiles(
@@ -10,11 +10,11 @@ export function checkDirectionTiles(
 ) {
   for (let i = 1; i <= limited; i++) {
     if (isFree(pos + direction.multiplier * i)) {
-      possibleMoves.push(pos)
+      possibleMoves.push(pos + direction.multiplier * i)
       if (isOnEdge(pos, direction.edge)) break
       continue
     } else if (isEatable(pos, isWhite)) {
-      possibleMoves.push(pos)
+      possibleMoves.push(pos + direction.multiplier * i)
       break
     } else if (isFriendly(pos, isWhite)) {
       break
