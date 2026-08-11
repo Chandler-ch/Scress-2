@@ -1,4 +1,4 @@
-export type directions =
+export type Directions =
   'north' | 'west' | 'south' | 'east' | 'northwest' | 'southwest' | 'northeast' | 'southeast'
 
 export type DirectionMultiplier = { multiplier: number; edge: number[] }
