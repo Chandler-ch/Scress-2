@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { possibleMoves } from '@/utils/possibleMovesHandler'
+import { onMovement } from '@/utils/selectionHandling'
 import { computed, ref, watch } from 'vue'
 
 const tileSize = import.meta.env.VITE_TILE_SIZE + 'px'
@@ -31,7 +32,7 @@ watch(possibleMoves.value, () => {
 </script>
 
 <template>
-  <div class="tile" :class="tileColor" v-on:click="marked ? console.log('moving') : ''">
+  <div class="tile" :class="tileColor" v-on:click="marked ? onMovement(position) : ''">
     <slot />
   </div>
 </template>

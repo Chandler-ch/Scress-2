@@ -1,15 +1,24 @@
 import { selectPawnPath, selectWPawnPath } from '@/utils/figureSelection/pawnPath'
 import type { ScressFigures } from '@/types/scressFigures'
 import { possibleMoves } from './possibleMovesHandler'
+import { ref, type Ref } from 'vue'
+import { gameState, loadGame } from './saveManager'
+
+const currentFigure: Ref<ScressFigures> = ref('')
 
 export function onSelectedFigure(figure: ScressFigures, pos: number) {
-  // loadGame -> set marked = false
   possibleMoves.value.length = 0
-  showMovement(figure, pos)
+  currentFigure.value = figure
+  showMovement(pos)
 }
 
-function showMovement(figure: ScressFigures, pos: number) {
-  switch (figure) {
+export function onMovement(pos: number) {
+  gameState[pos] = currentFigure.value
+  loadGame()
+}
+
+function showMovement(pos: number) {
+  switch (currentFigure.value) {
     case 'Bauer':
       selectPawnPath(pos)
       break
