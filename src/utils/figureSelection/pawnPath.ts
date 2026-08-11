@@ -1,4 +1,5 @@
-import { getPossibleMoves } from '../DirectionHandling'
+import { getPossibleMoves } from '../directionHandling'
+
 export function selectPawnPath(pos: number) {
   let limited = 1
   if (pos > 8 && pos <= 16) {

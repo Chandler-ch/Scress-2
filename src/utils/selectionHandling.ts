@@ -1,4 +1,4 @@
-import { selectPawnPath, selectWPawnPath } from '@/utils/tileSelections/pawnPath'
+import { selectPawnPath, selectWPawnPath } from '@/utils/figureSelection/pawnPath'
 import type { ScressFigures } from '@/types/scressFigures'
 
 export function onSelectedFigure(figure: ScressFigures, pos: number) {
