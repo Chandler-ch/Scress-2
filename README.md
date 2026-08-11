@@ -9,7 +9,7 @@ Das ganze Projekt ist relativ simpel. Ein anschauliches Schachbrett im 2-Spieler
 ## Get Started
 Bevor das Projekt gestartet werden kann, müssen mit ```npm install``` alle Dependencies installiert werden.
 Um daraufhin das Projekt zu starten, muss nur ```npm run dev``` ausgeführt werden.
-
+ 
 ### Type-Check, Compile and Minify for Production
 
 ```sh
