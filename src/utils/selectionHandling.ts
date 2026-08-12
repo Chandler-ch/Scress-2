@@ -7,6 +7,7 @@ import { selectRookPath } from './figureSelection/rookPath'
 import { selectBishopPath } from './figureSelection/bishopPath'
 import { selectKingPath } from './figureSelection/kingPath'
 import { selectQueenPath } from './figureSelection/queenPath'
+import { selectKnightPath } from './figureSelection/knightPath'
 
 const currentFigure: Ref<ScressFigures> = ref('')
 const startPos: Ref<number> = ref(-1)
@@ -47,7 +48,7 @@ function showMovement(pos: number) {
       break
     case 'Pferd':
     case 'Pferd-W':
-      console.log('not implemented yet Pferd')
+      selectKnightPath(pos)
       break
     case 'Turm':
     case 'Turm-W':

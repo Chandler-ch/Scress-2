@@ -5,6 +5,7 @@ import { gameState, isWhiteTurn } from '@/utils/saveManager'
 export function checkDirectionTiles(pos: number, direction: DirectionMultiplier, limited: number) {
   for (let i = 1; i <= limited; i++) {
     const calcPos = pos + direction.multiplier * i
+    console.log(direction)
 
     if (isOnEdge(pos, direction.edge)) break
     else if (isFree(calcPos)) {
