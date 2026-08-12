@@ -5,12 +5,7 @@ import { ref, type Ref } from 'vue'
 
 export const possibleMoves: Ref<number[]> = ref([])
 
-export function getpossibleMoves(
-  pos: number,
-  direction: Direction,
-  isWhite: boolean,
-  limited: number = 8,
-) {
+export function getpossibleMoves(pos: number, direction: Direction, limited: number = 8) {
   const multiplier: DirectionMultiplier = resolveDirection(direction)
-  checkDirectionTiles(pos, multiplier, isWhite, limited)
+  checkDirectionTiles(pos, multiplier, limited)
 }

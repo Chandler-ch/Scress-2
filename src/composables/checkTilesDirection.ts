@@ -1,13 +1,8 @@
 import type { DirectionMultiplier } from '@/types/directions'
 import { possibleMoves } from '@/utils/possibleMovesHandler'
-import { gameState } from '@/utils/saveManager'
+import { gameState, isWhiteTurn } from '@/utils/saveManager'
 
-export function checkDirectionTiles(
-  pos: number,
-  direction: DirectionMultiplier,
-  isWhite: boolean,
-  limited: number,
-) {
+export function checkDirectionTiles(pos: number, direction: DirectionMultiplier, limited: number) {
   for (let i = 1; i <= limited; i++) {
     const calcPos = pos + direction.multiplier * i
 
@@ -15,10 +10,10 @@ export function checkDirectionTiles(
       possibleMoves.value.push(calcPos)
       if (isOnEdge(calcPos, direction.edge)) break
       continue
-    } else if (isEatable(calcPos, isWhite)) {
+    } else if (isEatable(calcPos)) {
       possibleMoves.value.push(calcPos)
       break
-    } else if (isFriendly(calcPos, isWhite)) {
+    } else if (isFriendly(calcPos)) {
       break
     } else {
       console.log('Something went wrong. Please check the security cameras. Operation will stop.')
@@ -31,14 +26,14 @@ function isFree(pos: number) {
   return gameState.value[pos] === ''
 }
 
-function isEatable(pos: number, currentIsWhite: boolean) {
+function isEatable(pos: number) {
   const figureIsWhite = gameState.value[pos]?.includes('-W')
-  return figureIsWhite !== currentIsWhite
+  return figureIsWhite !== isWhiteTurn.value
 }
 
-function isFriendly(pos: number, currentIsWhite: boolean) {
+function isFriendly(pos: number) {
   const figureIsWhite = gameState.value[pos]?.includes('-W')
-  return figureIsWhite === currentIsWhite
+  return figureIsWhite === isWhiteTurn.value
 }
 
 function isOnEdge(pos: number, edge: number[]) {
