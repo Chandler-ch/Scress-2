@@ -6,9 +6,12 @@ export function checkDirectionTiles(pos: number, direction: DirectionMultiplier,
   for (let i = 1; i <= limited; i++) {
     const calcPos = pos + direction.multiplier * i
 
-    if (isFree(calcPos)) {
+    if (isOnEdge(pos, direction.edge)) break
+    else if (isFree(calcPos)) {
       possibleMoves.value.push(calcPos)
-      if (isOnEdge(calcPos, direction.edge)) break
+      if (isOnEdge(calcPos, direction.edge)) {
+        break
+      }
       continue
     } else if (isEatable(calcPos)) {
       possibleMoves.value.push(calcPos)
@@ -37,7 +40,11 @@ function isFriendly(pos: number) {
 }
 
 function isOnEdge(pos: number, edge: number[]) {
-  return edge.find((e) => {
-    pos === e
+  let found = false
+  edge.find((e) => {
+    if (pos === e) found = true
   })
+
+  if (found) return true
+  else return false
 }

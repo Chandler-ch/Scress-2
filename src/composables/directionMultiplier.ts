@@ -5,11 +5,11 @@ export function resolveDirection(direction: Direction) {
     case 'north':
       return { multiplier: -8, edge: northEdge }
     case 'east':
-      return { multiplier: -1, edge: eastEdge }
+      return { multiplier: -1, edge: westEdge }
     case 'south':
       return { multiplier: 8, edge: southEdge }
     case 'west':
-      return { multiplier: 1, edge: westEdge }
+      return { multiplier: 1, edge: eastEdge }
     case 'northeast':
       return { multiplier: -7, edge: northEdge.concat(eastEdge) }
     case 'northwest':
