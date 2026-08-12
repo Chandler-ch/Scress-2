@@ -6,6 +6,7 @@ import { gameState, isWhiteTurn } from './saveManager'
 import { selectRookPath } from './figureSelection/rookPath'
 import { selectBishopPath } from './figureSelection/bishopPath'
 import { selectKingPath } from './figureSelection/kingPath'
+import { selectQueenPath } from './figureSelection/queenPath'
 
 const currentFigure: Ref<ScressFigures> = ref('')
 const startPos: Ref<number> = ref(-1)
@@ -38,7 +39,7 @@ function showMovement(pos: number) {
       break
     case 'Königin':
     case 'Königin-W':
-      console.log('not implemented yet Königin')
+      selectQueenPath(pos)
       break
     case 'Läufer':
     case 'Läufer-W':
