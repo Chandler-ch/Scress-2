@@ -33,7 +33,6 @@ watch(possibleMoves.value, () => {
 
 <template>
   <div class="tile" :class="tileColor" v-on:click="marked ? onMovement(position) : ''">
-    {{ position }}
     <slot />
   </div>
 </template>

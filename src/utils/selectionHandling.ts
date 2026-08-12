@@ -5,6 +5,7 @@ import { ref, type Ref } from 'vue'
 import { gameState, isWhiteTurn } from './saveManager'
 import { selectRookPath } from './figureSelection/rookPath'
 import { selectBishopPath } from './figureSelection/bishopPath'
+import { selectKingPath } from './figureSelection/kingPath'
 
 const currentFigure: Ref<ScressFigures> = ref('')
 const startPos: Ref<number> = ref(-1)
@@ -33,7 +34,7 @@ function showMovement(pos: number) {
       break
     case 'König':
     case 'König-W':
-      console.log('not implemented yet König')
+      selectKingPath(pos)
       break
     case 'Königin':
     case 'Königin-W':
