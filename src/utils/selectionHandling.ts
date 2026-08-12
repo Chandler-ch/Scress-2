@@ -3,6 +3,11 @@ import type { ScressFigures } from '@/types/scressFigures'
 import { possibleMoves } from './possibleMovesHandler'
 import { ref, type Ref } from 'vue'
 import { gameState, isWhiteTurn } from './saveManager'
+import { selectRookPath } from './figureSelection/rookPath'
+import { selectBishopPath } from './figureSelection/bishopPath'
+import { selectKingPath } from './figureSelection/kingPath'
+import { selectQueenPath } from './figureSelection/queenPath'
+import { selectKnightPath } from './figureSelection/knightPath'
 
 const currentFigure: Ref<ScressFigures> = ref('')
 const startPos: Ref<number> = ref(-1)
@@ -31,23 +36,23 @@ function showMovement(pos: number) {
       break
     case 'König':
     case 'König-W':
-      console.log('not implemented yet')
+      selectKingPath(pos)
       break
     case 'Königin':
     case 'Königin-W':
-      console.log('not implemented yet')
+      selectQueenPath(pos)
       break
     case 'Läufer':
     case 'Läufer-W':
-      console.log('not implemented yet')
+      selectBishopPath(pos)
       break
     case 'Pferd':
     case 'Pferd-W':
-      console.log('not implemented yet')
+      selectKnightPath(pos)
       break
     case 'Turm':
     case 'Turm-W':
-      console.log('not implemented yet')
+      selectRookPath(pos)
       break
   }
 }
