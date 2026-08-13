@@ -8,11 +8,14 @@ Das ganze Projekt ist relativ simpel. Ein anschauliches Schachbrett im 2-Spieler
 ![SCRESS](SCRESS.png)
 
 ## Get Started
+#### Skript Variante
+Um das Projekt zu starten muss nur das dev.sh Skript ausgeführt werden. Dieses installiert die aktuellsten Dependencies und startet das Frontend & das Backend gleichzeitig im Developer Modus.
 
+#### Shell Variante
 Bevor das Projekt gestartet werden kann, müssen mit `npm install` alle Dependencies installiert werden.
 Um daraufhin das Projekt zu starten, muss nur `npm run dev` ausgeführt werden.
 
-### Type-Check, Compile and Minify for Production
+##### Type-Check, Compile and Minify for Production
 
 ```sh
 npm run build
