@@ -1,13 +1,13 @@
-import { getpossibleMoves } from '../possibleMovesHandler'
+import { getPossibleMoves } from '../possibleMovesHandler'
 
 export function selectKingPath(pos: number) {
   const limited = 1
-  getpossibleMoves(pos, 'north', limited)
-  getpossibleMoves(pos, 'east', limited)
-  getpossibleMoves(pos, 'south', limited)
-  getpossibleMoves(pos, 'west', limited)
-  getpossibleMoves(pos, 'northeast', limited)
-  getpossibleMoves(pos, 'northwest', limited)
-  getpossibleMoves(pos, 'southeast', limited)
-  getpossibleMoves(pos, 'southwest', limited)
+  getPossibleMoves(pos, 'north', limited)
+  getPossibleMoves(pos, 'east', limited)
+  getPossibleMoves(pos, 'south', limited)
+  getPossibleMoves(pos, 'west', limited)
+  getPossibleMoves(pos, 'northeast', limited)
+  getPossibleMoves(pos, 'northwest', limited)
+  getPossibleMoves(pos, 'southeast', limited)
+  getPossibleMoves(pos, 'southwest', limited)
 }

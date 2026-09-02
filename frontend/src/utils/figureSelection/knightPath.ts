@@ -1,13 +1,13 @@
-import { getpossibleMoves } from '../possibleMovesHandler'
+import { getPossibleMoves } from '../possibleMovesHandler'
 
 export function selectKnightPath(pos: number) {
   const limited = 1
-  getpossibleMoves(pos, 'kNorthWest', limited)
-  getpossibleMoves(pos, 'kWwestNorth', limited)
-  getpossibleMoves(pos, 'kWestSouth', limited)
-  getpossibleMoves(pos, 'kSouthWest', limited)
-  getpossibleMoves(pos, 'kSouthEast', limited)
-  getpossibleMoves(pos, 'kEastSouth', limited)
-  getpossibleMoves(pos, 'kEastNorth', limited)
-  getpossibleMoves(pos, 'kNorthEast', limited)
+  getPossibleMoves(pos, 'kNorthWest', limited)
+  getPossibleMoves(pos, 'kWwestNorth', limited)
+  getPossibleMoves(pos, 'kWestSouth', limited)
+  getPossibleMoves(pos, 'kSouthWest', limited)
+  getPossibleMoves(pos, 'kSouthEast', limited)
+  getPossibleMoves(pos, 'kEastSouth', limited)
+  getPossibleMoves(pos, 'kEastNorth', limited)
+  getPossibleMoves(pos, 'kNorthEast', limited)
 }

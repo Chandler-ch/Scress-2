@@ -1,12 +1,12 @@
-import { getpossibleMoves } from '../possibleMovesHandler'
+import { getPossibleMoves } from '../possibleMovesHandler'
 
 export function selectQueenPath(pos: number) {
-  getpossibleMoves(pos, 'north')
-  getpossibleMoves(pos, 'east')
-  getpossibleMoves(pos, 'south')
-  getpossibleMoves(pos, 'west')
-  getpossibleMoves(pos, 'northeast')
-  getpossibleMoves(pos, 'northwest')
-  getpossibleMoves(pos, 'southeast')
-  getpossibleMoves(pos, 'southwest')
+  getPossibleMoves(pos, 'north')
+  getPossibleMoves(pos, 'east')
+  getPossibleMoves(pos, 'south')
+  getPossibleMoves(pos, 'west')
+  getPossibleMoves(pos, 'northeast')
+  getPossibleMoves(pos, 'northwest')
+  getPossibleMoves(pos, 'southeast')
+  getPossibleMoves(pos, 'southwest')
 }

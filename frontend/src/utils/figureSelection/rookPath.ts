@@ -1,8 +1,8 @@
-import { getpossibleMoves } from '../possibleMovesHandler'
+import { getPossibleMoves } from '../possibleMovesHandler'
 
 export function selectRookPath(pos: number) {
-  getpossibleMoves(pos, 'north')
-  getpossibleMoves(pos, 'east')
-  getpossibleMoves(pos, 'south')
-  getpossibleMoves(pos, 'west')
+  getPossibleMoves(pos, 'north')
+  getPossibleMoves(pos, 'east')
+  getPossibleMoves(pos, 'south')
+  getPossibleMoves(pos, 'west')
 }
