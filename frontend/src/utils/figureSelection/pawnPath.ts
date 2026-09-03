@@ -1,4 +1,4 @@
-import { getPossibleMoves } from '../possibleMovesHandler'
+import { getPossibleEat, getPossibleMoves } from '../possibleMovesHandler'
 
 export function selectPawnPath(pos: number) {
   let limited = 1
@@ -6,6 +6,8 @@ export function selectPawnPath(pos: number) {
     limited = 2
   }
   getPossibleMoves(pos, 'south', limited)
+  getPossibleEat(pos, 'southwest')
+  getPossibleEat(pos, 'southeast')
 }
 
 export function selectWPawnPath(pos: number) {
@@ -14,8 +16,8 @@ export function selectWPawnPath(pos: number) {
     limited = 2
   }
   getPossibleMoves(pos, 'north', limited)
+  getPossibleEat(pos, 'northwest')
+  getPossibleEat(pos, 'northeast')
 }
 
-export function selectPawnEatingPath() {
-  
-}
+export function selectPawnEatingPath() {}
