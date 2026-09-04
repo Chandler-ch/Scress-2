@@ -32,17 +32,24 @@ export function checkDirectionTilesMovable(
 export function checkDirectionTileEatable(pos: number, direction: DirectionMultiplier) {
   const calcPos = pos + direction.multiplier
 
-  if (!isOnEdge(pos, direction.edge) && isEatable(calcPos)) possibleMoves.value.push(calcPos)
+  if (isEatable(calcPos)) possibleMoves.value.push(calcPos)
 }
 
+// !isOnEdge(pos, direction.edge) &&
 function isFree(pos: number) {
   return gameState.value[pos] === ''
 }
 
 // umschreiben, dass kein boolean zurückkommt, sondern der platz dort und dann checken
 function isEatable(pos: number) {
-  const figureIsWhite = gameState.value[pos]?.includes('-W')
-  return figureIsWhite !== isWhiteTurn.value
+  const targetFigure = gameState.value[pos]
+  const targetIsWhite = targetFigure?.includes('-W')
+  const targetIsEmpty = targetFigure?.length == 0
+  const targetIsBlack = !targetIsWhite && !targetIsEmpty
+
+  if (isWhiteTurn.value) {
+    return targetIsBlack
+  } else return targetIsWhite
 }
 
 // umschreiben, dass kein boolean zurückkommt, sondern der platz dort und dann checken
