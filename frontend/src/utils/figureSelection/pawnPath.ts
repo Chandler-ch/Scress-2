@@ -3,9 +3,9 @@ import { isWhiteTurn } from '../saveManager'
 import type { Direction } from '@/types/directions'
 
 export function selectPawnPath(pos: number) {
-  const isInStartPosition = isWhiteTurn ? pos >= 8 && pos < 16 : pos >= 48 && pos < 56
-  const moveDirection: Direction = isWhiteTurn ? 'north' : 'south'
-  const eatDirection: Direction[] = isWhiteTurn
+  const isInStartPosition = isWhiteTurn.value ? pos >= 48 && pos < 56 : pos >= 8 && pos < 16
+  const moveDirection: Direction = isWhiteTurn.value ? 'north' : 'south'
+  const eatDirection: Direction[] = isWhiteTurn.value
     ? ['northwest', 'northeast']
     : ['southeast', 'southwest']
 
