@@ -12,3 +12,5 @@ export type ScressFigures =
   | 'Läufer-W'
   | 'Königin-W'
   | 'König-W'
+
+export type FigureSituation = 'ENEMY' | 'FRIEND'

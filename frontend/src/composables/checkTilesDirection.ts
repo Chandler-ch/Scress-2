@@ -1,4 +1,5 @@
 import type { DirectionMultiplier } from '@/types/directions'
+import type { FigureSituation } from '@/types/scressFigures'
 import { possibleMoves } from '@/utils/possibleMovesHandler'
 import { gameState, isWhiteTurn } from '@/utils/saveManager'
 
@@ -17,10 +18,10 @@ export function checkDirectionTilesMovable(
         break
       }
       continue
-    } else if (isEatable(calcPos)) {
+    } else if (isFigure(calcPos, 'ENEMY')) {
       possibleMoves.value.push(calcPos)
       break
-    } else if (isFriendly(calcPos)) {
+    } else if (isFigure(calcPos, 'FRIEND')) {
       break
     } else {
       console.log('Something went wrong. Please check the security cameras. Operation will stop.')
@@ -32,30 +33,25 @@ export function checkDirectionTilesMovable(
 export function checkDirectionTileEatable(pos: number, direction: DirectionMultiplier) {
   const calcPos = pos + direction.multiplier
 
-  if (isEatable(calcPos)) possibleMoves.value.push(calcPos)
+  if (!isOnEdge(pos, direction.edge) && isFigure(calcPos, 'ENEMY'))
+    possibleMoves.value.push(calcPos)
 }
 
-// !isOnEdge(pos, direction.edge) &&
 function isFree(pos: number) {
   return gameState.value[pos] === ''
 }
 
-// umschreiben, dass kein boolean zurückkommt, sondern der platz dort und dann checken
-function isEatable(pos: number) {
+function isFigure(pos: number, situation: FigureSituation) {
+  const isEnemy = situation === 'ENEMY'
+
   const targetFigure = gameState.value[pos]
   const targetIsWhite = targetFigure?.includes('-W')
   const targetIsEmpty = targetFigure?.length == 0
   const targetIsBlack = !targetIsWhite && !targetIsEmpty
 
   if (isWhiteTurn.value) {
-    return targetIsBlack
-  } else return targetIsWhite
-}
-
-// umschreiben, dass kein boolean zurückkommt, sondern der platz dort und dann checken
-function isFriendly(pos: number) {
-  const figureIsWhite = gameState.value[pos]?.includes('-W')
-  return figureIsWhite === isWhiteTurn.value
+    return isEnemy ? targetIsBlack : targetIsWhite
+  } else return isEnemy ? targetIsWhite : targetIsBlack
 }
 
 function isOnEdge(pos: number, edge: number[]) {
