@@ -1,8 +1,9 @@
-import { getpossibleMoves } from '../possibleMovesHandler'
+import type { Direction } from '@/types/directions'
+import { checkDirectionTiles } from '@/utils/checkTilesDirection'
 
 export function selectRookPath(pos: number) {
-  getpossibleMoves(pos, 'north')
-  getpossibleMoves(pos, 'east')
-  getpossibleMoves(pos, 'south')
-  getpossibleMoves(pos, 'west')
+  const directions: Direction[] = ['north', 'east', 'south', 'west']
+  directions.forEach((direction) => {
+    checkDirectionTiles(pos, direction)
+  })
 }

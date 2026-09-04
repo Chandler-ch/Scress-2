@@ -1,13 +1,19 @@
-import { getpossibleMoves } from '../possibleMovesHandler'
+import { type Direction } from '@/types/directions'
+import { checkDirectionTiles } from '@/utils/checkTilesDirection'
 
 export function selectKnightPath(pos: number) {
   const limited = 1
-  getpossibleMoves(pos, 'kNorthWest', limited)
-  getpossibleMoves(pos, 'kWwestNorth', limited)
-  getpossibleMoves(pos, 'kWestSouth', limited)
-  getpossibleMoves(pos, 'kSouthWest', limited)
-  getpossibleMoves(pos, 'kSouthEast', limited)
-  getpossibleMoves(pos, 'kEastSouth', limited)
-  getpossibleMoves(pos, 'kEastNorth', limited)
-  getpossibleMoves(pos, 'kNorthEast', limited)
+  const directions: Direction[] = [
+    'kNorthWest',
+    'kEastNorth',
+    'kEastSouth',
+    'kNorthEast',
+    'kSouthEast',
+    'kSouthWest',
+    'kWestSouth',
+    'kWwestNorth',
+  ]
+  directions.forEach((direction) => {
+    checkDirectionTiles(pos, direction, limited)
+  })
 }

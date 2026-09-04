@@ -1,12 +1,18 @@
-import { getpossibleMoves } from '../possibleMovesHandler'
+import type { Direction } from '@/types/directions'
+import { checkDirectionTiles } from '@/utils/checkTilesDirection'
 
 export function selectQueenPath(pos: number) {
-  getpossibleMoves(pos, 'north')
-  getpossibleMoves(pos, 'east')
-  getpossibleMoves(pos, 'south')
-  getpossibleMoves(pos, 'west')
-  getpossibleMoves(pos, 'northeast')
-  getpossibleMoves(pos, 'northwest')
-  getpossibleMoves(pos, 'southeast')
-  getpossibleMoves(pos, 'southwest')
+  const directions: Direction[] = [
+    'north',
+    'east',
+    'south',
+    'west',
+    'northeast',
+    'northwest',
+    'southeast',
+    'southwest',
+  ]
+  directions.forEach((direction) => {
+    checkDirectionTiles(pos, direction)
+  })
 }

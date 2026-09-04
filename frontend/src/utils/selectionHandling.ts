@@ -1,6 +1,5 @@
-import { selectPawnPath, selectWPawnPath } from '@/utils/figureSelection/pawnPath'
+import { selectPawnPath } from '@/utils/figureSelection/pawnPath'
 import type { ScressFigures } from '@/types/scressFigures'
-import { possibleMoves } from './possibleMovesHandler'
 import { ref, type Ref } from 'vue'
 import { gameState, isWhiteTurn } from './saveManager'
 import { selectRookPath } from './figureSelection/rookPath'
@@ -8,6 +7,7 @@ import { selectBishopPath } from './figureSelection/bishopPath'
 import { selectKingPath } from './figureSelection/kingPath'
 import { selectQueenPath } from './figureSelection/queenPath'
 import { selectKnightPath } from './figureSelection/knightPath'
+import { possibleMoves } from '@/utils/checkTilesDirection'
 
 const currentFigure: Ref<ScressFigures> = ref('')
 const startPos: Ref<number> = ref(-1)
@@ -29,10 +29,8 @@ export function onMovement(pos: number) {
 function showMovement(pos: number) {
   switch (currentFigure.value) {
     case 'Bauer':
-      selectPawnPath(pos)
-      break
     case 'Bauer-W':
-      selectWPawnPath(pos)
+      selectPawnPath(pos)
       break
     case 'König':
     case 'König-W':
