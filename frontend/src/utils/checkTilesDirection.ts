@@ -31,9 +31,6 @@ export function checkDirectionTiles(
       break
     } else if (checkMove && isFigure(calcPos, 'FRIEND')) {
       break
-    } else {
-      console.log('Something went wrong. Please check the security cameras. Operation will stop.')
-      break
     }
   }
 }
