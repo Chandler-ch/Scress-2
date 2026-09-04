@@ -1,8 +1,9 @@
+import type { Direction } from '@/types/directions'
 import { checkDirectionTiles } from '@/utils/checkTilesDirection'
 
 export function selectRookPath(pos: number) {
-  checkDirectionTiles(pos, 'north')
-  checkDirectionTiles(pos, 'east')
-  checkDirectionTiles(pos, 'south')
-  checkDirectionTiles(pos, 'west')
+  const directions: Direction[] = ['north', 'east', 'south', 'west']
+  directions.forEach((direction) => {
+    checkDirectionTiles(pos, direction)
+  })
 }

@@ -1,13 +1,19 @@
+import { type Direction } from '@/types/directions'
 import { checkDirectionTiles } from '@/utils/checkTilesDirection'
 
 export function selectKnightPath(pos: number) {
   const limited = 1
-  checkDirectionTiles(pos, 'kNorthWest', limited)
-  checkDirectionTiles(pos, 'kWwestNorth', limited)
-  checkDirectionTiles(pos, 'kWestSouth', limited)
-  checkDirectionTiles(pos, 'kSouthWest', limited)
-  checkDirectionTiles(pos, 'kSouthEast', limited)
-  checkDirectionTiles(pos, 'kEastSouth', limited)
-  checkDirectionTiles(pos, 'kEastNorth', limited)
-  checkDirectionTiles(pos, 'kNorthEast', limited)
+  const directions: Direction[] = [
+    'kNorthWest',
+    'kEastNorth',
+    'kEastSouth',
+    'kNorthEast',
+    'kSouthEast',
+    'kSouthWest',
+    'kWestSouth',
+    'kWwestNorth',
+  ]
+  directions.forEach((direction) => {
+    checkDirectionTiles(pos, direction, limited)
+  })
 }
