@@ -1,23 +1,20 @@
 import { checkDirectionTiles } from '@/utils/checkTilesDirection'
+import { isWhiteTurn } from '../saveManager'
+import type { Direction } from '@/types/directions'
 
 export function selectPawnPath(pos: number) {
+  const isInStartPosition = isWhiteTurn ? pos >= 8 && pos < 16 : pos >= 48 && pos < 56
+  const moveDirection: Direction = isWhiteTurn ? 'north' : 'south'
+  const eatDirection: Direction[] = isWhiteTurn
+    ? ['northwest', 'northeast']
+    : ['southeast', 'southwest']
+
   let limited = 1
-  if (pos >= 8 && pos < 16) {
+  if (isInStartPosition) {
     limited = 2
   }
-  checkDirectionTiles(pos, 'south', limited, 'MOVE')
-  checkDirectionTiles(pos, 'southwest', 1, 'EAT')
-  checkDirectionTiles(pos, 'southeast', 1, 'EAT')
+  checkDirectionTiles(pos, moveDirection, limited, 'MOVE')
+  eatDirection.forEach((direction) => {
+    checkDirectionTiles(pos, direction, 1, 'EAT')
+  })
 }
-
-export function selectWPawnPath(pos: number) {
-  let limited = 1
-  if (pos >= 48 && pos < 56) {
-    limited = 2
-  }
-  checkDirectionTiles(pos, 'north', limited, 'MOVE')
-  checkDirectionTiles(pos, 'northwest', 1, 'EAT')
-  checkDirectionTiles(pos, 'northeast', 1, 'EAT')
-}
-
-export function selectPawnEatingPath() {}

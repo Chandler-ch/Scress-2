@@ -1,4 +1,4 @@
-import { selectPawnPath, selectWPawnPath } from '@/utils/figureSelection/pawnPath'
+import { selectPawnPath } from '@/utils/figureSelection/pawnPath'
 import type { ScressFigures } from '@/types/scressFigures'
 import { ref, type Ref } from 'vue'
 import { gameState, isWhiteTurn } from './saveManager'
@@ -29,10 +29,8 @@ export function onMovement(pos: number) {
 function showMovement(pos: number) {
   switch (currentFigure.value) {
     case 'Bauer':
-      selectPawnPath(pos)
-      break
     case 'Bauer-W':
-      selectWPawnPath(pos)
+      selectPawnPath(pos)
       break
     case 'König':
     case 'König-W':
