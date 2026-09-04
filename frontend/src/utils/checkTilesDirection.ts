@@ -1,27 +1,35 @@
-import type { DirectionMultiplier } from '@/types/directions'
-import type { FigureSituation } from '@/types/scressFigures'
-import { possibleMoves } from '@/utils/possibleMovesHandler'
+import type { Direction, DirectionMultiplier } from '@/types/directions'
 import { gameState, isWhiteTurn } from '@/utils/saveManager'
+import { getDirectionMultiplier } from '../composables/directionMultiplier'
+import type { FigureSituation, TileCheck } from '@/types/check'
+import { ref, type Ref } from 'vue'
 
-export function checkDirectionTilesMovable(
+export const possibleMoves: Ref<number[]> = ref([])
+
+export function checkDirectionTiles(
   pos: number,
-  direction: DirectionMultiplier,
-  limited: number,
+  directionRaw: Direction,
+  limited: number = 8,
+  check: TileCheck = 'ALL',
 ) {
+  const direction: DirectionMultiplier = getDirectionMultiplier(directionRaw)
+  const checkMove = check == 'ALL' || check == 'MOVE'
+  const checkEat = check == 'ALL' || check == 'EAT'
+
   for (let i = 1; i <= limited; i++) {
     const calcPos = pos + direction.multiplier * i
 
     if (isOnEdge(pos, direction.edge)) break
-    else if (isFree(calcPos)) {
+    else if (checkMove && isFree(calcPos)) {
       possibleMoves.value.push(calcPos)
       if (isOnEdge(calcPos, direction.edge)) {
         break
       }
       continue
-    } else if (isFigure(calcPos, 'ENEMY')) {
+    } else if (checkEat && isFigure(calcPos, 'ENEMY')) {
       possibleMoves.value.push(calcPos)
       break
-    } else if (isFigure(calcPos, 'FRIEND')) {
+    } else if (checkMove && isFigure(calcPos, 'FRIEND')) {
       break
     } else {
       console.log('Something went wrong. Please check the security cameras. Operation will stop.')

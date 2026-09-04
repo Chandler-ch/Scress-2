@@ -1,8 +1,8 @@
-import { getPossibleMoves } from '../possibleMovesHandler'
+import { checkDirectionTiles } from '@/utils/checkTilesDirection'
 
 export function selectRookPath(pos: number) {
-  getPossibleMoves(pos, 'north')
-  getPossibleMoves(pos, 'east')
-  getPossibleMoves(pos, 'south')
-  getPossibleMoves(pos, 'west')
+  checkDirectionTiles(pos, 'north')
+  checkDirectionTiles(pos, 'east')
+  checkDirectionTiles(pos, 'south')
+  checkDirectionTiles(pos, 'west')
 }

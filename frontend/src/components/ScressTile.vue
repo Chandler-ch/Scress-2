@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { possibleMoves } from '@/utils/possibleMovesHandler'
+import { possibleMoves } from '@/utils/checkTilesDirection'
 import { onMovement } from '@/utils/selectionHandling'
 import { computed, ref, watch } from 'vue'
 

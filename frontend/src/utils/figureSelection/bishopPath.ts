@@ -1,8 +1,8 @@
-import { getPossibleMoves } from '../possibleMovesHandler'
+import { checkDirectionTiles } from '@/utils/checkTilesDirection'
 
 export function selectBishopPath(pos: number) {
-  getPossibleMoves(pos, 'northeast')
-  getPossibleMoves(pos, 'northwest')
-  getPossibleMoves(pos, 'southeast')
-  getPossibleMoves(pos, 'southwest')
+  checkDirectionTiles(pos, 'northeast')
+  checkDirectionTiles(pos, 'northwest')
+  checkDirectionTiles(pos, 'southeast')
+  checkDirectionTiles(pos, 'southwest')
 }

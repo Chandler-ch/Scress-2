@@ -1,13 +1,13 @@
-import { getPossibleEat, getPossibleMoves } from '../possibleMovesHandler'
+import { checkDirectionTiles } from '@/utils/checkTilesDirection'
 
 export function selectPawnPath(pos: number) {
   let limited = 1
   if (pos >= 8 && pos < 16) {
     limited = 2
   }
-  getPossibleMoves(pos, 'south', limited)
-  getPossibleEat(pos, 'southwest')
-  getPossibleEat(pos, 'southeast')
+  checkDirectionTiles(pos, 'south', limited, 'MOVE')
+  checkDirectionTiles(pos, 'southwest', 1, 'EAT')
+  checkDirectionTiles(pos, 'southeast', 1, 'EAT')
 }
 
 export function selectWPawnPath(pos: number) {
@@ -15,9 +15,9 @@ export function selectWPawnPath(pos: number) {
   if (pos >= 48 && pos < 56) {
     limited = 2
   }
-  getPossibleMoves(pos, 'north', limited)
-  getPossibleEat(pos, 'northwest')
-  getPossibleEat(pos, 'northeast')
+  checkDirectionTiles(pos, 'north', limited)
+  checkDirectionTiles(pos, 'northwest', 1, 'EAT')
+  checkDirectionTiles(pos, 'northeast', 1, 'EAT')
 }
 
 export function selectPawnEatingPath() {}

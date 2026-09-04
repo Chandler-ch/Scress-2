@@ -1,12 +1,12 @@
-import { getPossibleMoves } from '../possibleMovesHandler'
+import { checkDirectionTiles } from '@/utils/checkTilesDirection'
 
 export function selectQueenPath(pos: number) {
-  getPossibleMoves(pos, 'north')
-  getPossibleMoves(pos, 'east')
-  getPossibleMoves(pos, 'south')
-  getPossibleMoves(pos, 'west')
-  getPossibleMoves(pos, 'northeast')
-  getPossibleMoves(pos, 'northwest')
-  getPossibleMoves(pos, 'southeast')
-  getPossibleMoves(pos, 'southwest')
+  checkDirectionTiles(pos, 'north')
+  checkDirectionTiles(pos, 'east')
+  checkDirectionTiles(pos, 'south')
+  checkDirectionTiles(pos, 'west')
+  checkDirectionTiles(pos, 'northeast')
+  checkDirectionTiles(pos, 'northwest')
+  checkDirectionTiles(pos, 'southeast')
+  checkDirectionTiles(pos, 'southwest')
 }
