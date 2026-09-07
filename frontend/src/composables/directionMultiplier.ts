@@ -10,7 +10,7 @@ import {
   type Direction,
 } from '@/types/directions'
 
-export function resolveDirection(direction: Direction) {
+export function getDirectionMultiplier(direction: Direction) {
   switch (direction) {
     case 'north':
       return { multiplier: -8, edge: northEdge }
