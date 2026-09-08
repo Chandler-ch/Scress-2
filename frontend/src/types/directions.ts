@@ -11,7 +11,7 @@ export type Direction =
 
 type KnightDirections =
   | 'kNorthWest'
-  | 'kWwestNorth'
+  | 'kWestNorth'
   | 'kWestSouth'
   | 'kSouthWest'
   | 'kSouthEast'
