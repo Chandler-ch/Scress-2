@@ -9,5 +9,7 @@ beforeEach(() => {
 
 test('whole selection works', () => {
   onSelectedFigure('Königin-W', 32)
-  expect(possibleMoves.value).toStrictEqual([24, 16, 8, 31, 40, 25, 18, 11, 41])
+  expect(possibleMoves.value).toStrictEqual([
+    24, 16, 8, 33, 34, 35, 36, 37, 38, 39, 40, 25, 18, 11, 41,
+  ])
 })
