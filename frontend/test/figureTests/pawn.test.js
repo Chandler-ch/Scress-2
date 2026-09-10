@@ -1,5 +1,5 @@
 import { beforeEach, expect, test, toStrictEqual } from 'vitest'
-import { selectPawnPath } from '../../src/utils/figureSelection/pawnPath'
+import { selectPawnPath } from '../../src/utils/figureAllocation/pawnPath'
 import { possibleMoves } from '../../src/utils/checkTilesDirection'
 import { resetGameState, isWhiteTurn } from '../../src/utils/saveManager'
 import { resetSelection } from '../../src/utils/selectionHandling'
