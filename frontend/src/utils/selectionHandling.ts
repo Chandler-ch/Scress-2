@@ -2,7 +2,7 @@ import type { ScressFigures } from '@/types/scressFigures'
 import { ref, type Ref } from 'vue'
 import { gameState, isWhiteTurn } from './saveManager'
 import { possibleMoves } from '@/utils/checkTilesDirection'
-import { showMovement } from './figureAssignment'
+import { showMovement } from './figureAllocation/figureAssignment'
 
 const currentFigure: Ref<ScressFigures> = ref('')
 const startPos: Ref<number> = ref(-1)

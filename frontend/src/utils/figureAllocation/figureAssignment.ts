@@ -1,8 +1,8 @@
 import type { Direction } from '@/types/directions'
 import type { ScressFigures } from '@/types/scressFigures'
-import { selectFigurePath } from './figureSelection/figurePath'
+import { selectFigurePath } from './figurePath'
 import { ref, type Ref } from 'vue'
-import { selectPawnPath } from './figureSelection/pawnPath'
+import { selectPawnPath } from './pawnPath'
 
 const directions: Ref<Direction[]> = ref([])
 const limited: Ref<number> = ref(8)
@@ -71,5 +71,4 @@ export function showMovement(pos: number, currentFigure: ScressFigures) {
 function resetValues() {
   limited.value = 8
   directions.value = []
-  // hunger
 }
