@@ -4,7 +4,6 @@ import { selectFigurePath } from './figureSelection/figurePath'
 import { ref, type Ref } from 'vue'
 import { selectPawnPath } from './figureSelection/pawnPath'
 import { selectQueenPath } from './figureSelection/queenPath'
-import { selectRookPath } from './figureSelection/rookPath'
 
 const directions: Ref<Direction[]> = ref([])
 const limited: Ref<number> = ref(8)
@@ -55,7 +54,7 @@ export function showMovement(pos: number, currentFigure: ScressFigures) {
       break
     case 'Turm':
     case 'Turm-W':
-      selectRookPath(pos)
+      directions.value = ['north', 'east', 'south', 'west']
       break
   }
   selectFigurePath(pos, directions.value, limited.value)
