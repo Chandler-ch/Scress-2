@@ -11,7 +11,7 @@ export function selectKnightPath(pos: number) {
     'kSouthEast',
     'kSouthWest',
     'kWestSouth',
-    'kWwestNorth',
+    'kWestNorth',
   ]
   directions.forEach((direction) => {
     checkDirectionTiles(pos, direction, limited)
