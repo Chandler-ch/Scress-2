@@ -3,7 +3,6 @@ import type { ScressFigures } from '@/types/scressFigures'
 import { selectFigurePath } from './figureSelection/figurePath'
 import { ref, type Ref } from 'vue'
 import { selectPawnPath } from './figureSelection/pawnPath'
-import { selectQueenPath } from './figureSelection/queenPath'
 
 const directions: Ref<Direction[]> = ref([])
 const limited: Ref<number> = ref(8)
@@ -32,7 +31,16 @@ export function showMovement(pos: number, currentFigure: ScressFigures) {
       break
     case 'Königin':
     case 'Königin-W':
-      selectQueenPath(pos)
+      directions.value = [
+        'north',
+        'east',
+        'south',
+        'west',
+        'northeast',
+        'northwest',
+        'southeast',
+        'southwest',
+      ]
       break
     case 'Läufer':
     case 'Läufer-W':
